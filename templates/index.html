@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Devops Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .calculator-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 350px; text-align: center; }
+        h1 { color: #333; font-size: 24px; margin-bottom: 5px; }
+        .subtitle { color: #666; font-size: 14px; margin-bottom: 25px; font-weight: bold; color: #ff9900; }
+        input, select, button { width: 100%; padding: 12px; margin: 8px 0; box-sizing: border-box; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #0056b3; }
+        .result-box { margin-top: 20px; padding: 15px; background: #e9ecef; border-radius: 6px; font-size: 18px; font-weight: bold; color: #495057; min-height: 24px; }
+    </style>
+</head>
+<body>
+
+<div class="calculator-card">
+    <h1>DevOps Calculator</h1>
+    <div class="subtitle">Deployed Live on AWS EC2 ☁️</div>
+    
+    <form method="POST">
+        <input type="number" step="any" name="num1" placeholder="Enter first number" value="{{ num1 if num1 is not none else '' }}" required>
+        
+        <select name="operation">
+            <option value="add" {% if operation == 'add' %}selected{% endif %}>➕ Addition</option>
+            <option value="sub" {% if operation == 'sub' %}selected{% endif %}>➖ Subtraction</option>
+            <option value="mult" {% if operation == 'mult' %}selected{% endif %}>✖️ Multiplication</option>
+            <option value="div" {% if operation == 'div' %}selected{% endif %}>➗ Division</option>
+        </select>
+        
+        <input type="number" step="any" name="num2" placeholder="Enter second number" value="{{ num2 if num2 is not none else '' }}" required>
+        
+        <button type="submit">Calculate Outcome</button>
+    </form>
+
+    <div class="result-box">
+        {% if result is not none %}
+            Result: {{ result }}
+        {% else %}
+            Ready for Input
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
+
