@@ -25,10 +25,10 @@ def home():
                 result = add(num1, num2)
             elif operation == 'sub':
                 result = subtract(num1, num2)
-            elif operation == 'mult':
-                result = multiply(num1, num2)
-            elif operation == 'div':
-                result = divide(num1, num2)
+            # elif operation == 'mult':
+            #     result = multiply(num1, num2)
+            # elif operation == 'div':
+            #     result = divide(num1, num2)
                 
             # Formatting results cleanly if they are whole numbers
             if result is not None and result.is_integer():
