@@ -3,8 +3,8 @@ from flask import Flask, render_template, request
 # Import your core logic modules
 from add import add
 from sub import subtract
-from mult import multiply
-from division import divide
+# from mult import multiply
+# from division import divide
 
 app = Flask(__name__)
 
